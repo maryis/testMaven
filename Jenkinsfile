@@ -1,9 +1,19 @@
 pipeline {
     agent any 
     stages {
-        stage('Example Build') {
+        stage('build') {
             steps {
-                bat 'mvn clean compile'  //sh on linux instead of bat
+                sh 'mvn clean compile'  //sh on linux instead of bat
+            }
+        }
+ 	stage('test') {
+            steps {
+                sh 'mvn test'  //sh on linux instead of bat
+            }
+	    post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
             }
         }
     }
