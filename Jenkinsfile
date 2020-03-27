@@ -20,7 +20,6 @@ pipeline {
             steps {
                 sh 'java -jar target/*.jar'  //sh on linux instead of bat
             }
-            }
         }
     }
 }
