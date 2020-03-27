@@ -1,23 +1,22 @@
 pipeline {
-    agent none 
+    agent any 
     stages {
      stage('image') {
-            agent any
             steps {
-                sh 'docker build -t myjava:1.0 .' 
+                bash 'sudo docker build -t myjava:1.0 .' 
             }
         }
- 	    stage('package') {
+     stage('package') {
             steps {
                 sh 'mvn package' 
             }
         }
-	 stage('run') {
+     stage('run') {
        agent {
-        docker {
+        docker 	{
             image 'myjava:1.0' 
-        }
-    }
+        	}
+   	 }
             steps {
                 sh 'java --version'  //run inside container
             }
