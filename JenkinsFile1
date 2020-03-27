@@ -1,0 +1,26 @@
+pipeline {
+    agent none 
+    stages {
+     stage('image') {
+            agent any
+            steps {
+                sh 'sudo docker build -t myjava .'  //sh on linux instead of bat
+            }
+        }
+ 	    stage('package') {
+            steps {
+                sh 'mvn package' 
+            }
+        }
+	 stage('run') {
+       agent {
+        docker {
+            image 'myjava' 
+        }
+    }
+            steps {
+                sh 'java --version'  //run inside container
+            }
+        }
+    }
+}
