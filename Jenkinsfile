@@ -8,7 +8,7 @@ pipeline {
         }
  	stage('test') {
             steps {
-                sh 'mvn test'  //sh on linux instead of bat
+                sh 'mvn package'  //sh on linux instead of bat
             }
 	    post {
                 always {
