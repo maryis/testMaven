@@ -6,7 +6,7 @@ pipeline {
                 sh 'mvn clean compile'  //sh on linux instead of bat
             }
         }
- 	stage('test') {
+ 	stage('package') {
             steps {
                 sh 'mvn package'  //sh on linux instead of bat
             }
@@ -14,6 +14,12 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
+            }
+        }
+	 stage('run') {
+            steps {
+                sh 'java -jar target/*.jar'  //sh on linux instead of bat
+            }
             }
         }
     }
