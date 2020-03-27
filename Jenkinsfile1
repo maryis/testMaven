@@ -4,7 +4,7 @@ pipeline {
      stage('image') {
             agent any
             steps {
-                sh 'sudo docker build -t myjava .'  //sh on linux instead of bat
+                sh 'docker build -t myjava:1.0 .' 
             }
         }
  	    stage('package') {
@@ -15,7 +15,7 @@ pipeline {
 	 stage('run') {
        agent {
         docker {
-            image 'myjava' 
+            image 'myjava:1.0' 
         }
     }
             steps {
