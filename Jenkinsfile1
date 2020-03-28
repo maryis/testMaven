@@ -1,3 +1,5 @@
+//    it is an ok jenkinsfile, but 1- my jenkins does not have docker inside to build image 2- pom.xml does not have pmd plugin to generate report
+
 pipeline {
     agent any 
     stages {
