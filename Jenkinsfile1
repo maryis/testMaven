@@ -44,11 +44,13 @@ pipeline {
             steps {
                 sh 'echo END'  //run inside container
             }
-	     post { //conventionally it is ok to add post at the end of pipeline
+	   
+        }
+	
+    }
+      post { //conventionally it is ok to add post at the end of pipeline
        		 always { 
             		echo 'End of my pipeline'
-        }
-    }
         }
     }
 }
