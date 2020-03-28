@@ -8,5 +8,17 @@ pipeline {
                 sh 'mvn compile' 
             }
         }
-    }
+
+     stage('test') {
+            steps {
+                sh 'mvn test' 
+            }
+        }
+
+     stage('code_review') {
+            steps {
+                sh 'mvn pmd:pmd' 
+            }
+        }
+   }
 }
