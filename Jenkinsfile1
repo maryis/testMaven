@@ -1,7 +1,11 @@
 //    it is an ok jenkinsfile, but 1- my jenkins does not have docker inside to build image 2- pom.xml does not have pmd plugin to generate report
 
 pipeline {
-    agent any 
+    agent any
+     triggers {  cron('H */4 * * 1-5')     } // schedule based on cron syntax
+     //H: when load is low, */4 every 4 hours every month every day in days 1-5 of week
+     //triggers { pollSCM('H */4 * * 1-5') } //schedule when check scm for commit
+    
     stages {
 
      stage('compile') {
