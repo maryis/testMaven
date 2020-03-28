@@ -31,6 +31,7 @@ pipeline {
 
 	agent{
     		// Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
+		//it needs jenkins server have docker installed
      		dockerfile {
         		filename 'Dockerfile' // optional because file name is standars
         		// dir 'build' if dockerfile is not in root
