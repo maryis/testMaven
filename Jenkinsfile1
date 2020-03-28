@@ -36,7 +36,7 @@ pipeline {
         		filename 'Dockerfile' // optional because file name is standars
         		// dir 'build' if dockerfile is not in root
         		additionalBuildArgs  '--build-arg version=1.0'
-        		//args '-v /tmp:/tmp -t myapp'
+        		args '-t myapp'
     		}
 	    }
             steps {
